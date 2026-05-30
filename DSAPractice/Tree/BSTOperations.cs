@@ -27,7 +27,7 @@ namespace DSAPractice.Tree
             bool leftBalanced = IsBalanced(root.left);
             bool rigthBalanced = IsBalanced(root.right);
 
-            bool selfBalanced = Math.Abs(MaxDepth(root.left) - MaxDepth(root.right)) >= 1;
+            bool selfBalanced = Math.Abs(MaxDepth(root.left) - MaxDepth(root.right)) <= 1;
 
             return leftBalanced && rigthBalanced && selfBalanced;
         }
