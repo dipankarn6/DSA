@@ -3,6 +3,7 @@ namespace DSAPractice.Tree
 {
     internal class BSTOperations
     {
+        // max depth/height
         internal static int MaxDepth(BSTNode root)
         {
             if (root == null) return 0;
@@ -29,6 +30,17 @@ namespace DSAPractice.Tree
             bool selfBalanced = root.data > root.left.data && root.data < root.right.data;
 
             return leftBalanced && rigthBalanced && selfBalanced;
+        }
+
+        // diameter of a tree
+        internal static int Diameter(BSTNode root)
+        {
+            if (root == null) return 0;
+
+            int leftDepth = MaxDepth(root.left);
+            int rightDepth = MaxDepth(root.right);
+
+            return 1 + leftDepth + rightDepth;
         }
     }
 }
