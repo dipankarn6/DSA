@@ -1,26 +1,7 @@
-﻿namespace DSAPractice.BST
+﻿namespace DSAPractice.Tree
 {
     internal class BST
     {
-        // create tree
-        internal static BSTNode CreateTree()
-        {
-            var root = new BSTNode(6)
-            {
-                left = new BSTNode(4),
-                right = new BSTNode(7)
-            };
-
-            root.left.left = new BSTNode(3);
-            root.left.right = new BSTNode(5);
-
-
-            root.right.left = new BSTNode(4);
-            root.right.right = new BSTNode(9);
-
-            return root;
-        }
-
         // level order traversal - BFS
 
         internal static void LevelOrder(BSTNode root)
