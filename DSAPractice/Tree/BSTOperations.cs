@@ -18,7 +18,7 @@ namespace DSAPractice.Tree
 
         // balanced check
 
-        internal static bool IsBalanced(BSTNode root)
+        internal static bool IsBalanced(BSTNode root) // n*n
         {
             if (root == null) return false;
 
@@ -30,6 +30,21 @@ namespace DSAPractice.Tree
             bool selfBalanced = Math.Abs(MaxDepth(root.left) - MaxDepth(root.right)) <= 1;
 
             return leftBalanced && rigthBalanced && selfBalanced;
+        }
+
+        internal static int IsBalancedWithHeight(BSTNode root) // n
+        {
+            if (root == null) return 0;
+
+            int leftDepth = IsBalancedWithHeight(root.left);
+            if (leftDepth == -1) return -1;
+
+            int rightDepth = IsBalancedWithHeight(root.right);
+            if (rightDepth == -1) return -1;
+
+            if (Math.Abs(leftDepth - rightDepth) > 1) return -1;
+
+            return 1 + Math.Max(leftDepth, rightDepth);
         }
 
         // diameter of a tree

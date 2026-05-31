@@ -30,6 +30,7 @@
             root.right.right = new BSTNode(9);
 
             //root.left.left.left = new BSTNode(1);
+            //root.left.left.left.left = new BSTNode(0);
 
             root.right.right.left = new BSTNode(8);
             root.right.right.right = new BSTNode(13);

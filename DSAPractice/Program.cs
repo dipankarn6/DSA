@@ -29,9 +29,14 @@
     //Console.Write($"Max Depth of the tree: {ans}");
     //Console.WriteLine();
 
-    var isBalanced = BSTOperations.IsBalanced(root);
+    //var isBalanced = BSTOperations.IsBalanced(root);
 
-    Console.Write($"Tree is balanced: {isBalanced}");
+    //Console.Write($"Tree is balanced: {isBalanced}");
+    //Console.WriteLine();
+
+    var isBalanced = BSTOperations.IsBalancedWithHeight(root);
+
+    Console.Write($"Tree is balanced: {isBalanced != -1}");
     Console.WriteLine();
 
     var diameter = BSTOperations.Diameter(root);
