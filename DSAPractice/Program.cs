@@ -2,7 +2,7 @@
 
 // BST
 {
-    var root = BSTNode.CreateTree();
+    var root = TreeNode.CreateTree();
 
     //Console.WriteLine("BFS - Level Order");
 
@@ -34,14 +34,19 @@
     //Console.Write($"Tree is balanced: {isBalanced}");
     //Console.WriteLine();
 
-    var isBalanced = BSTOperations.IsBalancedWithHeight(root);
+    //var isBalanced = TreeOperations.IsBalancedWithHeight(root);
 
-    Console.Write($"Tree is balanced: {isBalanced != -1}");
-    Console.WriteLine();
+    //Console.Write($"Tree is balanced: {isBalanced != -1}");
+    //Console.WriteLine();
 
-    var diameter = BSTOperations.Diameter(root);
+    //var diameter = TreeOperations.Diameter(root);
 
-    Console.Write($"Diamter of the tree is : {diameter}");
+    //Console.Write($"Diamter of the tree is : {diameter}");
+    //Console.WriteLine();
+
+    int max = Int32.MinValue;
+    var maxPathSum = TreeOperations.MaxPathSum(root, ref max);
+    Console.WriteLine($"Max path sum of the tree is : {max}");
     Console.WriteLine();
 }
 

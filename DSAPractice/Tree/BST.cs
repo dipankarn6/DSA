@@ -4,9 +4,9 @@
     {
         // level order traversal - BFS
 
-        internal static void LevelOrder(BSTNode root)
+        internal static void LevelOrder(TreeNode root)
         {
-            var queue = new Queue<BSTNode>();
+            var queue = new Queue<TreeNode>();
             queue.Enqueue(root);
             queue.Enqueue(null);
 
@@ -42,7 +42,7 @@
 
         // DFS - IN, PRE, POST - Recursive
 
-        internal static void InOrder(BSTNode root)
+        internal static void InOrder(TreeNode root)
         {
             if (root == null) return;
 
@@ -54,7 +54,7 @@
 
         }
 
-        internal static void PreOrder(BSTNode root)
+        internal static void PreOrder(TreeNode root)
         {
             if (root == null) return;
 
@@ -66,7 +66,7 @@
 
         }
 
-        internal static void PostOrder(BSTNode root)
+        internal static void PostOrder(TreeNode root)
         {
             if (root == null) return;
 

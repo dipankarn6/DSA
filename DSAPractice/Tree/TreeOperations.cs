@@ -1,10 +1,10 @@
 ﻿
 namespace DSAPractice.Tree
 {
-    internal class BSTOperations
+    internal class TreeOperations
     {
         // max depth/height
-        internal static int MaxDepth(BSTNode root)
+        internal static int MaxDepth(TreeNode root)
         {
             if (root == null) return 0;
 
@@ -18,7 +18,7 @@ namespace DSAPractice.Tree
 
         // balanced check
 
-        internal static bool IsBalanced(BSTNode root) // n*n
+        internal static bool IsBalanced(TreeNode root) // n*n
         {
             if (root == null) return false;
 
@@ -32,7 +32,7 @@ namespace DSAPractice.Tree
             return leftBalanced && rigthBalanced && selfBalanced;
         }
 
-        internal static int IsBalancedWithHeight(BSTNode root) // n
+        internal static int IsBalancedWithHeight(TreeNode root) // n
         {
             if (root == null) return 0;
 
@@ -48,7 +48,7 @@ namespace DSAPractice.Tree
         }
 
         // diameter of a tree
-        internal static int Diameter(BSTNode root)
+        internal static int Diameter(TreeNode root)
         {
             if (root == null) return 0;
 
@@ -56,6 +56,26 @@ namespace DSAPractice.Tree
             int rightDepth = MaxDepth(root.right);
 
             return 1 + leftDepth + rightDepth;
+        }
+
+        // Max path sum
+
+        internal static int MaxPathSum(TreeNode root, ref int max)
+        {
+            if (root == null) return 0;
+
+            int left = Math.Max(0, MaxPathSum(root.left, ref max));
+            int right = Math.Max(0, MaxPathSum(root.right, ref max));
+
+            max = Math.Max(max, root.data + left + right);
+
+            Console.WriteLine($"Maxi: {max}");
+
+            Console.WriteLine($"Left: {left}");
+            Console.WriteLine($"Right: {right}");
+            Console.WriteLine($"Sum: {root.data + Math.Max(left, right)}");
+
+            return root.data + Math.Max(left, right);
         }
     }
 }
