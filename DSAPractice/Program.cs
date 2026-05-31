@@ -49,11 +49,18 @@
     //Console.WriteLine($"Max path sum of the tree is : {max}");
     //Console.WriteLine();
 
-    var tree1 = TreeNode.CreateTree();
-    var tree2 = TreeNode.CreateTree2();
-    
-    Console.WriteLine($"Are the trees identical : {TreeOperations.AreIdentical(tree1, tree2)}");
+    //var tree1 = TreeNode.CreateTree();
+    //var tree2 = TreeNode.CreateTree2();
+
+    //Console.WriteLine($"Are the trees identical : {TreeOperations.AreIdentical(tree1, tree2)}");
+    //Console.WriteLine();
+
+    Console.WriteLine("ZigZagTraversal");
+
+    TreeOperations.ZigZagTraversal(root);
+
     Console.WriteLine();
+
 }
 
 

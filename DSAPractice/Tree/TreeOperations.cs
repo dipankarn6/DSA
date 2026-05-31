@@ -84,5 +84,77 @@ namespace DSAPractice.Tree
 
             return (tree1.data == tree2.data) && AreIdentical(tree1.left, tree2.left) && AreIdentical(tree1.right, tree2.right);
         }
+
+        // zig-zag traversal using BFS
+
+        internal static void ZigZagTraversal(TreeNode root)
+        {
+            // basic bfs
+
+            if (root == null) return;
+
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(root);
+            queue.Enqueue(null);
+
+            // to track zigzag
+            bool leftToRight = true;
+            var list = new List<int>();
+            var finalList = new List<int>();
+
+            while(queue.Count > 0)
+            {
+                var front = queue.Dequeue();
+
+                if (front == null)
+                {
+                    if (leftToRight)
+                    {
+                        foreach (var item in list)
+                        {
+                            finalList.Add(item);
+                        }
+                    }
+                    else
+                    {
+                        list.Reverse();
+                        foreach (var item in list)
+                        {
+                            finalList.Add(item);
+                        }
+                    }
+
+                    leftToRight = !leftToRight;
+                    list.Clear();
+
+                    finalList.Add(-1);
+
+                    if (queue.Count > 0) queue.Enqueue(null);
+                }
+                else
+                {
+                    if (front.left != null)
+                    {
+                        queue.Enqueue(front.left);
+                    }
+                    if (front.right != null)
+                    {
+                        queue.Enqueue(front.right);
+                    }
+
+                    list.Add(front.data);
+                }
+            }
+
+            // print the final list
+
+            foreach(var el in finalList)
+            {
+                if(el == -1)
+                    Console.WriteLine();
+                else
+                    Console.Write(el + " ");
+            }
+        }
     }
 }
