@@ -48,14 +48,16 @@ namespace DSAPractice.Tree
         }
 
         // diameter of a tree
-        internal static int Diameter(TreeNode root)
+        internal static int Diameter(TreeNode root, ref int maximum)
         {
             if (root == null) return 0;
 
-            int leftDepth = MaxDepth(root.left);
-            int rightDepth = MaxDepth(root.right);
+            int leftDepth = Diameter(root.left, ref maximum);
+            int rightDepth = Diameter(root.right, ref maximum);
 
-            return 1 + leftDepth + rightDepth;
+            maximum = Math.Max(maximum, leftDepth + rightDepth);
+
+            return 1 + Math.Max(leftDepth, rightDepth);
         }
 
         // Max path sum
@@ -68,12 +70,6 @@ namespace DSAPractice.Tree
             int right = Math.Max(0, MaxPathSum(root.right, ref max));
 
             max = Math.Max(max, root.data + left + right);
-
-            Console.WriteLine($"Maxi: {max}");
-
-            Console.WriteLine($"Left: {left}");
-            Console.WriteLine($"Right: {right}");
-            Console.WriteLine($"Sum: {root.data + Math.Max(left, right)}");
 
             return root.data + Math.Max(left, right);
         }
