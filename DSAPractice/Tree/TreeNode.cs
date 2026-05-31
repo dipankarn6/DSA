@@ -37,5 +37,28 @@
 
             return root;
         }
+
+        internal static TreeNode CreateTree2()
+        {
+            var root = new TreeNode(6)
+            {
+                left = new TreeNode(4),
+                right = new TreeNode(7)
+            };
+
+            root.left.left = new TreeNode(3);
+            root.left.right = new TreeNode(5);
+
+
+            root.right.left = new TreeNode(4);
+            root.right.right = new TreeNode(9);
+
+            //root.left.left.left = new BSTNode(1);
+            //root.left.left.left.left = new BSTNode(0);
+
+            root.right.right.left = new TreeNode(8);
+
+            return root;
+        }
     }
 }

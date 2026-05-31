@@ -39,14 +39,20 @@
     //Console.Write($"Tree is balanced: {isBalanced != -1}");
     //Console.WriteLine();
 
-    int diameter = Int32.MinValue;
-    TreeOperations.Diameter(root, ref diameter);
-    Console.Write($"Diamter of the tree is : {diameter}");
-    Console.WriteLine();
+    //int diameter = Int32.MinValue;
+    //TreeOperations.Diameter(root, ref diameter);
+    //Console.Write($"Diamter of the tree is : {diameter}");
+    //Console.WriteLine();
 
-    int max = Int32.MinValue;
-    TreeOperations.MaxPathSum(root, ref max);
-    Console.WriteLine($"Max path sum of the tree is : {max}");
+    //int max = Int32.MinValue;
+    //TreeOperations.MaxPathSum(root, ref max);
+    //Console.WriteLine($"Max path sum of the tree is : {max}");
+    //Console.WriteLine();
+
+    var tree1 = TreeNode.CreateTree();
+    var tree2 = TreeNode.CreateTree2();
+    
+    Console.WriteLine($"Are the trees identical : {TreeOperations.AreIdentical(tree1, tree2)}");
     Console.WriteLine();
 }
 
